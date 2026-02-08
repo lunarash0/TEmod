@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "TEmod:item/burger"
+    "layer0": "temod:item/burger"
   }
 }
