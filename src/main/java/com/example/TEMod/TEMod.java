@@ -1,6 +1,7 @@
 package com.example.TEMod;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.MinecraftForge;
@@ -23,7 +24,16 @@ public class TEMod {
             DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
 
     public static final RegistryObject<Item> BURGER =
-            ITEMS.register("burger", () -> new Item(new Item.Properties()));
+            ITEMS.register("burger", () ->
+                    new Item(new Item.Properties()
+                            .food(new FoodProperties.Builder()
+                                    .nutrition(12)
+                                    .saturationMod(0.8f)
+                                    .meat()
+                                    .build()
+                            )
+                    )
+            );
 
     public TEMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
